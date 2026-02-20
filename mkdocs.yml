@@ -4,6 +4,8 @@ site_description: >-
   descriptions into ANZSIC codes using hybrid vector + full-text search
   and Gemini re-ranking. Built with Hexagonal (Ports & Adapters) architecture.
 site_author: CEP AI Team
+site_url: https://iagvk.github.io/anzsic_mapping_demo/
+repo_url: https://github.com/IAGvk/anzsic_mapping_demo
 docs_dir: docs
 site_dir: site
 
