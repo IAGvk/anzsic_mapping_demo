@@ -1,0 +1,121 @@
+site_name: ANZSIC Classifier
+site_description: >-
+  Production AI pipeline that classifies free-text occupation and business
+  descriptions into ANZSIC codes using hybrid vector + full-text search
+  and Gemini re-ranking. Built with Hexagonal (Ports & Adapters) architecture.
+site_author: CEP AI Team
+docs_dir: docs
+site_dir: site
+
+# ── Theme ──────────────────────────────────────────────────────────────────────
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs           # top-level nav as tabs
+    - navigation.tabs.sticky    # tabs stay visible when scrolling
+    - navigation.sections       # group sidebar items under headers
+    - navigation.expand         # auto-expand active section
+    - navigation.top            # back-to-top button
+    - search.highlight          # highlight search terms in results
+    - search.suggest            # autocomplete in search
+    - content.code.copy         # copy button on code blocks
+    - content.code.annotate     # inline code annotations
+  icon:
+    repo: fontawesome/brands/github
+
+# ── Extensions ─────────────────────────────────────────────────────────────────
+markdown_extensions:
+  - admonition                  # note / warning / tip callout boxes
+  - pymdownx.details            # collapsible admonitions
+  - pymdownx.superfences:       # fenced code blocks + Mermaid diagrams
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:         # syntax highlighting
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:            # tabbed content blocks
+      alternate_style: true
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true           # anchor links on headings
+      toc_depth: 3
+  - attr_list
+  - md_in_html
+
+# ── Plugins ────────────────────────────────────────────────────────────────────
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]            # repo root — finds prod.* packages
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_root_full_path: false
+            heading_level: 2
+            members_order: source
+            separate_signature: true
+            show_signature_annotations: true
+            show_if_no_docstring: false
+            filters:
+              - "!^_"           # hide private members by default
+
+# ── Navigation ─────────────────────────────────────────────────────────────────
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Guides:
+      - Quickstart: guides/quickstart.md
+      - CLI Reference: guides/cli.md
+      - Streamlit UI: guides/streamlit.md
+      - Developer Journey: guides/developer-journey.md
+  - API Reference:
+      - Config & Settings: reference/config.md
+      - Domain Models: reference/domain.md
+      - Ports (Interfaces): reference/ports.md
+      - Adapters: reference/adapters.md
+      - Services: reference/services.md
+  - Decisions:
+      - "001 — Hexagonal Architecture": decisions/001-hexagonal-architecture.md
+      - "002 — pgvector Hybrid Search": decisions/002-pgvector-hybrid-search.md
+      - "003 — Vertex AI Embeddings": decisions/003-vertex-ai-embeddings.md
+      - "004 — RRF Fusion": decisions/004-rrf-fusion.md
+      - "005 — Gemini Re-ranking": decisions/005-gemini-reranking.md
+      - "006 — Multi-Provider (OpenAI)": decisions/006-multi-provider.md
+  - Testing: testing.md
+
+# ── Extra ──────────────────────────────────────────────────────────────────────
+extra:
+  social:
+    - icon: fontawesome/brands/python
+      link: https://www.python.org
+
+extra_css:
+  - stylesheets/extra.css

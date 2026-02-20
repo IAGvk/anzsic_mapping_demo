@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "anzsic-classifier"
+version = "1.0.0"
+description = "Production ANZSIC occupation classifier — Hexagonal Architecture"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Internal — not for redistribution" }
+
+dependencies = [
+    "psycopg2-binary>=2.9",
+    "pgvector>=0.3",
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "pydantic>=2.0",
+    "streamlit>=1.35",
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "pytest-mock>=3.12",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "types-requests>=2.31",
+]
+
+[project.scripts]
+anzsic-classify = "prod.interfaces.cli:main"
+
+# ── pytest ─────────────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+testpaths = ["prod/tests"]
+addopts   = "-v --tb=short"
+markers   = [
+    "unit:        Pure logic tests — no I/O (default)",
+    "integration: Tests requiring live DB + GCP (opt-in with -m integration)",
+    "e2e:         Full pipeline tests",
+]
+# Run only non-integration tests by default
+filterwarnings = ["ignore::DeprecationWarning"]
+
+# ── Coverage ────────────────────────────────────────────────────────────────
+[tool.coverage.run]
+source   = ["prod"]
+omit     = ["prod/tests/*", "prod/interfaces/*"]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+
+# ── Ruff (linter + formatter) ───────────────────────────────────────────────
+[tool.ruff]
+line-length = 99
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "ANN", # flake8-annotations (type hints)
+]
+ignore = [
+    "ANN101",  # self annotation
+    "ANN102",  # cls annotation
+    "ANN401",  # Any type
+    "B008",    # function call in default arg (used in Pydantic Field)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"prod/tests/*" = ["ANN", "S101"]  # No annotations needed in tests; assert is fine
+
+# ── Mypy ───────────────────────────────────────────────────────────────────
+[tool.mypy]
+python_version        = "3.12"
+strict                = false
+ignore_missing_imports = true
+warn_return_any       = true
+warn_unused_configs   = true
+disallow_untyped_defs = true
+exclude               = ["prod/tests/"]

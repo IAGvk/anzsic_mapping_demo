@@ -1,0 +1,38 @@
+/* Custom overrides for ANZSIC Classifier docs */
+
+/* Tighten up the API reference monospace blocks */
+.doc-contents code {
+    font-size: 0.85em;
+}
+
+/* ADR status badges */
+.adr-status-accepted {
+    background: #2e7d32;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.adr-status-superseded {
+    background: #e65100;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Pipeline stage callout */
+.pipeline-stage {
+    border-left: 4px solid var(--md-primary-fg-color);
+    padding: 0.6em 1em;
+    margin: 0.8em 0;
+    background: var(--md-code-bg-color);
+    border-radius: 0 4px 4px 0;
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "query": "mobile mechanic",
+        "expected_top_code": "S9419_03",
+        "expected_top_desc_contains": "Automotive",
+        "expected_division": "Other Services",
+        "notes": "Classic test — mobile mechanic is own-account automotive repair"
+    },
+    {
+        "query": "cafe owner",
+        "expected_top_code": "H5111_01",
+        "expected_top_desc_contains": "Café",
+        "expected_division": "Accommodation and Food Services",
+        "notes": "Colloquial — FTS alone misses this; vector search essential"
+    },
+    {
+        "query": "registered nurse",
+        "expected_top_code": "Q8531_01",
+        "expected_top_desc_contains": "Nursing",
+        "expected_division": "Health Care and Social Assistance",
+        "notes": "Standard professional title — should be high confidence"
+    },
+    {
+        "query": "software engineer",
+        "expected_top_code": "J6202_01",
+        "expected_top_desc_contains": "Software",
+        "expected_division": "Professional, Scientific and Technical Services",
+        "notes": "ICT professional — vector search key for modern job titles"
+    },
+    {
+        "query": "primary school teacher",
+        "expected_top_code": "P8012_01",
+        "expected_top_desc_contains": "Primary",
+        "expected_division": "Education and Training",
+        "notes": "Education sector — straightforward match"
+    }
+]
