@@ -33,6 +33,10 @@ explicitly ruled out.
 - Select the TOP 5 best-matching codes, ranked from most to least likely.
 - For each selected code provide a short plain-English reason (1–2 sentences) \
 explaining WHY it matches (or why you ranked it above other options).
+- Assign a score from 0 to 1000 reflecting your confidence that this code is \
+correct: 1000 = near-certain match, 700–999 = strong match, 400–699 = plausible, \
+0–399 = weak / speculative. Be strict — only assign 900+ when the description \
+is an explicit and unambiguous match.
 - If fewer than 5 candidates genuinely match, return fewer — do not pad with \
 poor matches.
 
@@ -45,7 +49,8 @@ Respond ONLY with a JSON array of objects in this exact schema \
     "anzsic_desc": "...",
     "class_desc": "...",
     "division_desc": "...",
-    "reason": "..."
+    "reason": "...",
+    "score": 950
   },
   ...
 ]
@@ -55,9 +60,9 @@ Respond ONLY with a JSON array of objects in this exact schema \
 CSV_REFERENCE_HEADER = """\
 
 {divider}
-FULL ANZSIC REFERENCE — the candidate list above may be insufficient.
+FULL ANZSIC REFERENCE — the candidate list above may be insufficient or empty.
 All 5,236 codes are listed below as:  CODE: description
-Use this reference to find a better match if none of the candidates fit.
+Use this reference to find the best match for the user's input.
 {divider}
 """
 

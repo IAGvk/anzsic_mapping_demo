@@ -99,6 +99,12 @@ class PostgresDatabaseAdapter:
     ) -> list[tuple[str, int]]:
         """Full-text search using the GIN-indexed tsvector column.
 
+        Uses OR between stemmed query tokens so that descriptive free-text
+        queries like "fixes pipes in industries for AC" match records containing
+        ANY of the meaningful terms (pipe, fix, industri, etc.) rather than
+        requiring ALL terms to be present in the same record (AND semantics of
+        plainto_tsquery would return zero hits for most natural-language inputs).
+
         Falls back to an empty list rather than raising if no FTS results
         (colloquial queries often produce zero FTS hits — vector covers it).
         """
@@ -108,8 +114,11 @@ class PostgresDatabaseAdapter:
                        ORDER BY ts_rank_cd(fts_vector, query) DESC
                    ) AS rank
             FROM   anzsic_codes,
-                   plainto_tsquery('english', %s) AS query
-            WHERE  fts_vector @@ query
+                   (SELECT to_tsquery(string_agg(lexeme, ' | '))
+                    FROM   unnest(to_tsvector('english', %s))
+                   ) AS t(query)
+            WHERE  query IS NOT NULL
+              AND  fts_vector @@ query
             ORDER  BY ts_rank_cd(fts_vector, query) DESC
             LIMIT  %s
         """
@@ -150,8 +159,8 @@ class PostgresDatabaseAdapter:
         """Open a fresh psycopg2 connection with pgvector registered."""
         try:
             conn = psycopg2.connect(self._dsn)
-            register_vector(conn)
-            conn.autocommit = True
+            conn.autocommit = True          # must be set BEFORE register_vector
+            register_vector(conn)           # executes a query — needs autocommit already on
             logger.debug("PostgresDatabaseAdapter: new connection opened")
             return conn
         except psycopg2.Error as exc:

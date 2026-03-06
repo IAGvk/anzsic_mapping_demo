@@ -37,6 +37,10 @@ def _env_path(key: str, default: Path) -> Path:
     return Path(os.getenv(key, str(default)))
 
 
+def _env_float(key: str, default: float) -> float:
+    return float(os.getenv(key, str(default)))
+
+
 @dataclass(frozen=True)
 class Settings:
     """Immutable application settings loaded from environment variables."""
@@ -123,6 +127,41 @@ class Settings:
     embed_timeout: int = field(default_factory=lambda: _env_int("EMBED_TIMEOUT", 30))
     llm_timeout: int   = field(default_factory=lambda: _env_int("LLM_TIMEOUT", 90))
     embed_retries: int = field(default_factory=lambda: _env_int("EMBED_RETRIES", 3))
+
+    # ── GENI LLM (internal IAG platform) ──────────────────────────────────────
+    # Only required when LLM_PROVIDER=geni.
+    geni_base_url: str = field(
+        default_factory=lambda: _env(
+            "GENI_BASE_URL",
+            "https://eag-lumi-backend-532613543802.australia-southeast1.run.app",
+        )
+    )
+    geni_domain: str = field(
+        default_factory=lambda: _env("GENI_DOMAIN", "eag")
+    )
+    geni_bot_version_id: str = field(
+        default_factory=lambda: _env("GENI_BOT_VERSION_ID", "")
+    )
+    geni_poll_timeout: float = field(
+        default_factory=lambda: _env_float("GENI_POLL_TIMEOUT", 60.0)
+    )
+    geni_poll_interval: float = field(
+        default_factory=lambda: _env_float("GENI_POLL_INTERVAL", 1.0)
+    )
+    # Pre-upload the ANZSIC CSV once (via POST /api/files) and paste the UUID
+    # here to skip the upload step on every cold start.  Leave empty to let
+    # the adapter upload automatically on first use.
+    geni_csv_file_id: str = field(
+        default_factory=lambda: _env("GENI_CSV_FILE_ID", "")
+    )
+    # Set GENI_DISABLE_CSV_UPLOAD=true to skip the file-upload attempt entirely
+    # and always use the inline-text fallback.  Use this when the CSV is known
+    # to exceed GENI's token limit so the upload attempt (which can take ~25s
+    # to time out / be rejected) is never made.
+    geni_disable_csv_upload: bool = field(
+        default_factory=lambda: _env("GENI_DISABLE_CSV_UPLOAD", "").lower()
+        in ("1", "true", "yes")
+    )
 
 
 @lru_cache(maxsize=1)

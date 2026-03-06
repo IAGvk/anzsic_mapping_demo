@@ -100,6 +100,7 @@ class ClassifyResult(BaseModel):
     class_desc:    Optional[str] = None
     division_desc: Optional[str] = None
     reason:        Optional[str] = None
+    score:         Optional[int] = None  # 0–1000 LLM confidence (1000 = perfect match)
 
     # Carry-through from Stage 1 for display purposes
     group_desc:      Optional[str]   = None

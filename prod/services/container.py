@@ -10,9 +10,12 @@ changes are needed to switch between providers:
 
   EMBED_PROVIDER=vertex  (default) → VertexEmbeddingAdapter
   EMBED_PROVIDER=openai            → OpenAIEmbeddingAdapter
+  EMBED_PROVIDER=none              → NullEmbeddingAdapter  (FTS-only, no vector search)
 
-  LLM_PROVIDER=vertex   (default) → GeminiLLMAdapter
-  LLM_PROVIDER=openai             → OpenAILLMAdapter
+  LLM_PROVIDER=vertex            (default) → GeminiLLMAdapter
+  LLM_PROVIDER=openai                      → OpenAILLMAdapter
+  LLM_PROVIDER=geni                        → GeniLLMAdapter
+  LLM_PROVIDER=langchain_gemini            → GeminiLangChainLLMAdapter
 
 Mix-and-match is supported (e.g. OpenAI embeddings + Gemini LLM).
 GCPAuthManager is only instantiated when at least one GCP adapter is used.
@@ -57,9 +60,15 @@ def _build_embedder(settings) -> EmbeddingPort:
         logger.info("Embedding provider: Vertex AI (%s)", settings.gcp_embed_model)
         auth = GCPAuthManager(settings)
         return VertexEmbeddingAdapter(auth, settings)
+    if provider == "none":
+        from prod.adapters.null_embedding import NullEmbeddingAdapter
+        logger.warning(
+            "Embedding provider: NONE — FTS-only retrieval (vector search disabled)"
+        )
+        return NullEmbeddingAdapter()
     raise ConfigurationError(
         f"Unknown EMBED_PROVIDER '{settings.embed_provider}'. "
-        "Valid values: 'vertex', 'openai'."
+        "Valid values: 'vertex', 'openai', 'none'."
     )
 
 
@@ -76,9 +85,23 @@ def _build_llm(settings) -> LLMPort:
         logger.info("LLM provider: Vertex AI Gemini (%s)", settings.gcp_gemini_model)
         auth = GCPAuthManager(settings)
         return GeminiLLMAdapter(auth, settings)
+    if provider == "geni":
+        from prod.adapters.geni_llm import GeniLLMAdapter
+        logger.info(
+            "LLM provider: GENI (%s / bot_version=%s)",
+            settings.geni_domain,
+            settings.geni_bot_version_id,
+        )
+        return GeniLLMAdapter(settings)
+    if provider == "langchain_gemini":
+        from prod.adapters.gcp_auth import GCPAuthManager
+        from prod.adapters.gemini_langchain_llm import GeminiLangChainLLMAdapter
+        logger.info("LLM provider: LangChain ChatVertexAI (%s)", settings.gcp_gemini_model)
+        auth = GCPAuthManager(settings)
+        return GeminiLangChainLLMAdapter(settings, auth=auth)
     raise ConfigurationError(
         f"Unknown LLM_PROVIDER '{settings.llm_provider}'. "
-        "Valid values: 'vertex', 'openai'."
+        "Valid values: 'vertex', 'openai', 'geni', 'langchain_gemini'."
     )
 
 

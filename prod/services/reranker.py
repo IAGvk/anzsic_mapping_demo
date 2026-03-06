@@ -73,21 +73,35 @@ class LLMReranker:
             Empty list if both LLM attempts fail.
         """
         if not candidates:
-            logger.warning("LLMReranker.rerank called with no candidates")
-            return []
+            if not self._csv_reference:
+                # No candidates AND no CSV reference — nothing to give the LLM.
+                logger.warning(
+                    "LLMReranker.rerank: no candidates and no CSV reference loaded "
+                    "— cannot classify %r", query
+                )
+                return []
+            # No Stage 1 candidates, but we have the full CSV.
+            # Let the LLM search the reference directly for the best matches.
+            logger.warning(
+                "LLMReranker.rerank: no candidates for %r — "
+                "falling back to CSV-only LLM call", query
+            )
 
-        # ── Attempt 1: normal call ─────────────────────────────────────────
-        results = self._call_llm(query, candidates, top_k, include_reference=False)
+        # ── Attempt 1: always include full CSV reference ───────────────────
+        # Sending the full ANZSIC reference on the first call gives the LLM
+        # broader context, which matters most when vector search is disabled
+        # (FTS-only mode) and candidates may be less semantically precise.
+        results = self._call_llm(query, candidates, top_k, include_reference=True)
         if results:
             return results
 
-        # ── Attempt 2: retry with CSV reference injected ───────────────────
+        # ── Attempt 2: retry (same context, different conversation) ────────
         logger.warning(
-            "Gemini returned empty results for %r — retrying with CSV fallback", query
+            "LLM returned empty results for %r — retrying", query
         )
         results = self._call_llm(query, candidates, top_k, include_reference=True)
         if results:
-            logger.info("CSV fallback succeeded for %r", query)
+            logger.info("Retry succeeded for %r", query)
             return results
 
         logger.error("LLMReranker: both attempts failed for query %r", query)

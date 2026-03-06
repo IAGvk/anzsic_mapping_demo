@@ -18,6 +18,7 @@ SearchMode.HIGH_FIDELITY:
 from __future__ import annotations
 
 import logging
+import time
 from datetime import datetime, timezone
 
 from prod.config.settings import Settings
@@ -74,19 +75,34 @@ class ClassifierPipeline:
             request.top_k,
             request.retrieval_n,
         )
+        _t_total = time.perf_counter()
 
         # ── Stage 1: Hybrid Retrieval ──────────────────────────────────────
+        _t1 = time.perf_counter()
         candidates = self._retriever.retrieve(
             query=request.query,
             n=request.retrieval_n,
         )
+        _stage1_elapsed = time.perf_counter() - _t1
+        logger.info(
+            "⏱ [Classifier] stage=1_retrieval elapsed=%.3fs candidates=%d",
+            _stage1_elapsed,
+            len(candidates),
+        )
 
         # ── Stage 2 (optional): LLM Re-ranking ────────────────────────────
         if request.mode == SearchMode.HIGH_FIDELITY:
+            _t2 = time.perf_counter()
             results = self._reranker.rerank(
                 query=request.query,
                 candidates=candidates,
                 top_k=request.top_k,
+            )
+            _stage2_elapsed = time.perf_counter() - _t2
+            logger.info(
+                "⏱ [Classifier] stage=2_llm_rerank elapsed=%.3fs results=%d",
+                _stage2_elapsed,
+                len(results),
             )
             llm_model = self._reranker._llm.model_name
         else:
@@ -95,7 +111,18 @@ class ClassifierPipeline:
                 _candidate_to_result(c, rank=i + 1)
                 for i, c in enumerate(candidates[: request.top_k])
             ]
+            _stage2_elapsed = 0.0
             llm_model = ""
+
+        _total_elapsed = time.perf_counter() - _t_total
+        logger.info(
+            "⏱ [Classifier] stage=total elapsed=%.3fs "
+            "stage1=%.3fs stage2=%.3fs mode=%s",
+            _total_elapsed,
+            _stage1_elapsed,
+            _stage2_elapsed,
+            request.mode.value,
+        )
 
         return ClassifyResponse(
             query=request.query,

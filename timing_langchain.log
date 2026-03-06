@@ -1,0 +1,20 @@
+2026-03-04 13:33:11,538  INFO      prod.services.container  Building ClassifierPipeline | embed_provider=none llm_provider=langchain_gemini
+2026-03-04 13:33:11,538  WARNING   prod.services.container  Embedding provider: NONE — FTS-only retrieval (vector search disabled)
+2026-03-04 13:33:11,538  WARNING   prod.adapters.null_embedding  NullEmbeddingAdapter active — vector search is DISABLED. Retrieval will use FTS only. Set EMBED_PROVIDER=vertex or EMBED_PROVIDER=openai to re-enable hybrid search.
+2026-03-04 13:33:11,542  INFO      prod.services.container  LLM provider: LangChain ChatVertexAI (gemini-2.5-flash)
+2026-03-04 13:33:21,208  INFO      numexpr.utils  NumExpr defaulting to 11 threads.
+/Users/s748779/CEP_AI/anzsic_mapping_v1/prod/adapters/gemini_langchain_llm.py:127: LangChainDeprecationWarning: The class `ChatVertexAI` was deprecated in LangChain 3.2.0 and will be removed in 4.0.0. An updated version of the class exists in the `langchain-google-genai package and should be used instead. To use it run `pip install -U `langchain-google-genai` and import as `from `langchain_google_genai import ChatGoogleGenerativeAI``.
+  self._llm = ChatVertexAI(
+2026-03-04 13:33:22,458  INFO      prod.services.reranker  CSV reference loaded: 5236 entries (247614 chars)
+2026-03-04 13:33:22,458  INFO      prod.services.container  ClassifierPipeline ready | embedder=none (FTS-only mode) llm=gemini-2.5-flash
+2026-03-04 13:33:22,458  INFO      prod.services.classifier  classify | query='mobile mechanic' mode=high_fidelity top_k=5 retrieval_n=20
+2026-03-04 13:33:22,458  INFO      prod.services.retriever  Retrieving candidates | query='mobile mechanic' n=20
+2026-03-04 13:33:22,458  INFO      prod.services.retriever  Vector search skipped (no embedding) — FTS-only mode
+2026-03-04 13:33:22,486  INFO      prod.services.retriever  Retrieval complete | candidates=20 top_rrf=0.016393
+2026-03-04 13:33:22,486  INFO      prod.services.classifier  ⏱ [Classifier] stage=1_retrieval elapsed=0.028s candidates=20
+2026-03-04 13:33:22,492  INFO      prod.adapters.gcp_auth  GCPAuthManager: refreshing access token …
+2026-03-04 13:33:22,991  INFO      prod.adapters.gcp_auth  GCPAuthManager: token refreshed (expires in 3600s)
+2026-03-04 13:33:57,800  INFO      prod.adapters.gemini_langchain_llm  ⏱ [GeminiLangChain] operation=llm_invoke attempt=1 elapsed=35.313s
+2026-03-04 13:33:57,800  INFO      prod.adapters.gemini_langchain_llm  ⏱ [GeminiLangChain] operation=generate_json_total elapsed=35.314s
+2026-03-04 13:33:57,801  INFO      prod.services.classifier  ⏱ [Classifier] stage=2_llm_rerank elapsed=35.314s results=5
+2026-03-04 13:33:57,801  INFO      prod.services.classifier  ⏱ [Classifier] stage=total elapsed=35.343s stage1=0.028s stage2=35.314s mode=high_fidelity

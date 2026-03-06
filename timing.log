@@ -1,0 +1,20 @@
+2026-03-04 13:10:19,739  INFO      prod.services.container  Building ClassifierPipeline | embed_provider=none llm_provider=geni
+2026-03-04 13:10:19,740  WARNING   prod.services.container  Embedding provider: NONE — FTS-only retrieval (vector search disabled)
+2026-03-04 13:10:19,740  WARNING   prod.adapters.null_embedding  NullEmbeddingAdapter active — vector search is DISABLED. Retrieval will use FTS only. Set EMBED_PROVIDER=vertex or EMBED_PROVIDER=openai to re-enable hybrid search.
+2026-03-04 13:10:19,791  INFO      prod.services.container  LLM provider: GENI (eag / bot_version=236e8cc6-0a05-44ba-a0db-b310bc07a9e5)
+2026-03-04 13:10:19,791  INFO      prod.adapters.geni_llm  GeniLLMAdapter: GENI_DISABLE_CSV_UPLOAD=true — skipping CSV upload, using inline-text fallback
+2026-03-04 13:10:19,812  INFO      prod.services.reranker  CSV reference loaded: 5236 entries (247614 chars)
+2026-03-04 13:10:19,812  INFO      prod.services.container  ClassifierPipeline ready | embedder=none (FTS-only mode) llm=geni/gemini-2.5-pro (bot_version=236e8cc6-0a05-44ba-a0db-b310bc07a9e5)
+2026-03-04 13:10:19,812  INFO      prod.services.classifier  classify | query='mobile mechanic' mode=high_fidelity top_k=5 retrieval_n=10
+2026-03-04 13:10:19,812  INFO      prod.services.retriever  Retrieving candidates | query='mobile mechanic' n=10
+2026-03-04 13:10:19,812  INFO      prod.services.retriever  Vector search skipped (no embedding) — FTS-only mode
+2026-03-04 13:10:19,838  INFO      prod.services.retriever  Retrieval complete | candidates=10 top_rrf=0.016393
+2026-03-04 13:10:19,838  INFO      prod.services.classifier  ⏱ [Classifier] stage=1_retrieval elapsed=0.026s candidates=10
+2026-03-04 13:10:19,838  INFO      prod.adapters.geni_llm  GeniLLMAdapter.generate_json [text fallback]: appending 247891 chars CSV to message
+2026-03-04 13:10:21,623  INFO      prod.adapters.geni_llm  ⏱ [GeniLLM] operation=get_token elapsed=1.784s (token refreshed, valid ~55min)
+2026-03-04 13:10:22,222  INFO      prod.adapters.geni_llm  ⏱ [GeniLLM] operation=create_conversation elapsed=2.384s conversation_id=792c5200-e8ec-437d-90c6-14d4a2c452fa
+2026-03-04 13:10:23,598  INFO      prod.adapters.geni_llm  ⏱ [GeniLLM] operation=post_question elapsed=1.376s question_id=e3a92316-204b-417a-bb09-aebb69197d67
+2026-03-04 13:10:48,767  INFO      prod.adapters.geni_llm  ⏱ [GeniLLM] operation=poll_for_answer elapsed=25.167s poll_iterations=15 fetch_elapsed=2.641s answer_chars=2419 question_id=e3a92316-204b-417a-bb09-aebb69197d67
+2026-03-04 13:10:48,768  INFO      prod.adapters.geni_llm  ⏱ [GeniLLM] operation=generate_json_total elapsed=28.929s csv_path=inline_text
+2026-03-04 13:10:48,769  INFO      prod.services.classifier  ⏱ [Classifier] stage=2_llm_rerank elapsed=28.930s results=5
+2026-03-04 13:10:48,769  INFO      prod.services.classifier  ⏱ [Classifier] stage=total elapsed=28.957s stage1=0.026s stage2=28.930s mode=high_fidelity

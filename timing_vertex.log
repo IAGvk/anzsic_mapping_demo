@@ -1,0 +1,18 @@
+2026-03-04 13:40:12,668  INFO      prod.services.container  Building ClassifierPipeline | embed_provider=none llm_provider=vertex
+2026-03-04 13:40:12,668  WARNING   prod.services.container  Embedding provider: NONE — FTS-only retrieval (vector search disabled)
+2026-03-04 13:40:12,668  WARNING   prod.adapters.null_embedding  NullEmbeddingAdapter active — vector search is DISABLED. Retrieval will use FTS only. Set EMBED_PROVIDER=vertex or EMBED_PROVIDER=openai to re-enable hybrid search.
+2026-03-04 13:40:12,723  INFO      prod.services.container  LLM provider: Vertex AI Gemini (gemini-2.5-flash)
+2026-03-04 13:40:12,743  INFO      prod.services.reranker  CSV reference loaded: 5236 entries (247614 chars)
+2026-03-04 13:40:12,743  INFO      prod.services.container  ClassifierPipeline ready | embedder=none (FTS-only mode) llm=gemini-2.5-flash
+2026-03-04 13:40:12,743  INFO      prod.services.classifier  classify | query='mobile mechanic' mode=high_fidelity top_k=5 retrieval_n=20
+2026-03-04 13:40:12,744  INFO      prod.services.retriever  Retrieving candidates | query='mobile mechanic' n=20
+2026-03-04 13:40:12,744  INFO      prod.services.retriever  Vector search skipped (no embedding) — FTS-only mode
+2026-03-04 13:40:12,775  INFO      prod.services.retriever  Retrieval complete | candidates=20 top_rrf=0.016393
+2026-03-04 13:40:12,775  INFO      prod.services.classifier  ⏱ [Classifier] stage=1_retrieval elapsed=0.032s candidates=20
+2026-03-04 13:40:12,776  INFO      prod.adapters.gemini_llm  ⏱ [GeminiLLM] prompt_size system_chars=249409 user_chars=13481 total_payload_kb=263.1 est_tokens≈65722
+2026-03-04 13:40:12,776  INFO      prod.adapters.gcp_auth  GCPAuthManager: refreshing access token …
+2026-03-04 13:40:13,780  INFO      prod.adapters.gcp_auth  GCPAuthManager: token refreshed (expires in 3600s)
+2026-03-04 13:40:38,773  INFO      prod.adapters.gemini_llm  ⏱ [GeminiLLM] operation=http_post attempt=1 status=200 elapsed=24.993s response_kb=2.1
+2026-03-04 13:40:38,775  INFO      prod.adapters.gemini_llm  ⏱ [GeminiLLM] operation=generate_json_total elapsed=25.999s
+2026-03-04 13:40:38,775  INFO      prod.services.classifier  ⏱ [Classifier] stage=2_llm_rerank elapsed=25.999s results=3
+2026-03-04 13:40:38,775  INFO      prod.services.classifier  ⏱ [Classifier] stage=total elapsed=26.031s stage1=0.032s stage2=25.999s mode=high_fidelity

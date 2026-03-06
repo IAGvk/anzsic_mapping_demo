@@ -21,10 +21,11 @@ References:
 from __future__ import annotations
 
 import logging
+import time
 from dataclasses import dataclass
 
 from prod.config.settings import Settings
-from prod.domain.exceptions import EmbeddingError, RetrievalError
+from prod.domain.exceptions import RetrievalError
 from prod.domain.models import Candidate
 from prod.ports.database_port import DatabasePort
 from prod.ports.embedding_port import EmbeddingPort
@@ -101,13 +102,17 @@ class HybridRetriever:
         """
         logger.info("Retrieving candidates | query=%r n=%d", query[:80], n)
 
-        # ── 1. Embed ───────────────────────────────────────────────────────
+        # ── 1. Embed (skipped when NullEmbeddingAdapter returns []) ───────────
         query_vec = self._embedder.embed_query(query)
-        if not query_vec:
-            raise EmbeddingError(f"embed_query returned empty result for: {query!r}")
 
-        # ── 2 & 3. Search ─────────────────────────────────────────────────
-        vec_hits = self._db.vector_search(query_vec, limit=n)
+        # ── 2 & 3. Search ───────────────────────────────────────────
+        # Empty query_vec = EMBED_PROVIDER=none (NullEmbeddingAdapter).
+        # Skip vector search entirely; RRF still works with vec_hits=[].
+        if query_vec:
+            vec_hits = self._db.vector_search(query_vec, limit=n)
+        else:
+            logger.info("Vector search skipped (no embedding) — FTS-only mode")
+            vec_hits = []
         fts_hits = self._db.fts_search(query, limit=n)
         logger.debug("vec_hits=%d  fts_hits=%d", len(vec_hits), len(fts_hits))
 

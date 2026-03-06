@@ -78,7 +78,13 @@ class GeminiLLMAdapter:
             LLMError: On unrecoverable API failure.
         """
         payload = self._build_payload(system_prompt, user_message)
-        return self._post_with_retry(payload)
+        _t_total = time.perf_counter()
+        result = self._post_with_retry(payload)
+        logger.info(
+            "⏱ [GeminiLLM] operation=generate_json_total elapsed=%.3fs",
+            time.perf_counter() - _t_total,
+        )
+        return result
 
     # ── Private helpers ────────────────────────────────────────────────────
 
@@ -108,6 +114,22 @@ class GeminiLLMAdapter:
         delay = 2.0
         last_exc: Exception | None = None
 
+        # ── Log prompt sizes once (same payload on every attempt) ─────────
+        import json as _json
+        _payload_bytes = len(_json.dumps(payload).encode())
+        _sys_chars = len(payload.get("systemInstruction", {})
+                         .get("parts", [{}])[0].get("text", ""))
+        _usr_chars = len((payload.get("contents", [{}])[0]
+                         .get("parts", [{}])[0].get("text", "")))
+        logger.info(
+            "⏱ [GeminiLLM] prompt_size system_chars=%d user_chars=%d "
+            "total_payload_kb=%.1f est_tokens≈%d",
+            _sys_chars,
+            _usr_chars,
+            _payload_bytes / 1024,
+            (_sys_chars + _usr_chars) // 4,
+        )
+
         for attempt in range(1, retries + 1):
             token = self._auth.get_token()
             headers = {
@@ -115,12 +137,19 @@ class GeminiLLMAdapter:
                 "Content-Type": "application/json",
             }
             try:
+                _t0 = time.perf_counter()
                 resp = requests.post(
                     self._url,
                     headers=headers,
                     json=payload,
                     proxies=self._proxies,
                     timeout=self._settings.llm_timeout,
+                )
+                _resp_kb = len(resp.content) / 1024
+                logger.info(
+                    "⏱ [GeminiLLM] operation=http_post attempt=%d "
+                    "status=%d elapsed=%.3fs response_kb=%.1f",
+                    attempt, resp.status_code, time.perf_counter() - _t0, _resp_kb,
                 )
             except requests.RequestException as exc:
                 last_exc = exc
