@@ -1,0 +1,1784 @@
+[
+    {
+        "_scenario": "REAL #01 — colloquial trade query (I fix cars at a garage)",
+        "query": "I fix cars at a garage",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "S9419_05",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - Workshop (Excl Smash Repairs)",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "S9419_06",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial <10 Tonne)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "S9419_07",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial >10 Tonne)",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "S9419_08",
+                "anzsic_desc": "Automotive / Motor Vehicle Service and Repairs n.e.c.",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "S9419_13",
+                "anzsic_desc": "Motor Vehicle Engine Repair or Reconditioning (Excl Factory Reconditioning)",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "S9419_05",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - Workshop (Excl Smash Repairs)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This code perfectly matches the user's description as it specifies 'Mechanical Service and Repairs' performed in a 'Workshop', which directly corresponds to 'fix cars at a garage'.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "S9419_06",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial <10 Tonne)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This is a very strong general match for 'fixing cars' as it covers mechanical service and repairs for a common category of vehicles, which would typically occur in a garage.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "S9419_07",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial >10 Tonne)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "Similar to the previous entry, this code covers general mechanical service and repairs for heavier commercial vehicles, which is a common activity for someone who 'fixes cars at a garage'.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "S9419_08",
+                "anzsic_desc": "Automotive / Motor Vehicle Service and Repairs n.e.c.",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This code serves as a broad, general category for automotive service and repairs not elsewhere classified, making it a good fit for the general statement 'I fix cars'.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "S9419_13",
+                "anzsic_desc": "Motor Vehicle Engine Repair or Reconditioning (Excl Factory Reconditioning)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "While more specific, engine repair is a fundamental and very common task when 'fixing cars' in a garage, making it a highly relevant activity within general automotive repair.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #02 — very colloquial Australian slang trade query (bloke who builds houses)",
+        "query": "bloke who builds houses",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "E3011_06",
+                "anzsic_desc": "Residential Building Construction / Alteration / Renovation",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "E3011_05",
+                "anzsic_desc": "Residential Building Construction / Alteration / Renovation with Excavation",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "E3011_04",
+                "anzsic_desc": "Residential Building Construction / Alteration / Renovation without Excavation",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "E3011_08",
+                "anzsic_desc": "Residential Construction / Alteration / Renovation - Owner Builder",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "E3011_02",
+                "anzsic_desc": "Residential Building Alteration / Renovation or General Repair",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "E3011_06",
+                "anzsic_desc": "Residential Building Construction / Alteration / Renovation",
+                "class_desc": "House Construction",
+                "division_desc": "Construction",
+                "reason": "This is the most direct and general match for someone who 'builds houses', as it specifically covers residential building construction without adding overly specific details.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "E3011_05",
+                "anzsic_desc": "Residential Building Construction / Alteration / Renovation with Excavation",
+                "class_desc": "House Construction",
+                "division_desc": "Construction",
+                "reason": "This code directly describes building houses and includes excavation, which is a very common and integral part of new house construction.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "E3011_04",
+                "anzsic_desc": "Residential Building Construction / Alteration / Renovation without Excavation",
+                "class_desc": "House Construction",
+                "division_desc": "Construction",
+                "reason": "This code also directly describes building houses, covering scenarios where excavation is not part of the service, making it a relevant specific type of house construction.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "E3011_08",
+                "anzsic_desc": "Residential Construction / Alteration / Renovation - Owner Builder",
+                "class_desc": "House Construction",
+                "division_desc": "Construction",
+                "reason": "This code specifically identifies an 'owner builder' who constructs houses, which is a direct and common way for an individual to 'build houses'.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "E3011_02",
+                "anzsic_desc": "Residential Building Alteration / Renovation or General Repair",
+                "class_desc": "House Construction",
+                "division_desc": "Construction",
+                "reason": "While the user's input implies new construction, this code is still within 'House Construction' and covers related activities like alterations and renovations that a house builder might also perform.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #03 — descriptive trade query (electrical wiring in homes and offices)",
+        "query": "works on electrical wiring in homes and offices",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "E3232_03",
+                "anzsic_desc": "Electrician / Electrical Services / Electric Light, Power or Wiring Intallation",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "E3232_02",
+                "anzsic_desc": "Electric Light or Power Installation",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "E3232_05",
+                "anzsic_desc": "Electricians - Domestic",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "E3232_04",
+                "anzsic_desc": "Electricians - Commercial",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "E3232_09",
+                "anzsic_desc": "Telecommunication Cable or Wire Installation and Maintenance (Excl Transmission Lines)",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "E3232_03",
+                "anzsic_desc": "Electrician / Electrical Services / Electric Light, Power or Wiring Intallation",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "This code is the most comprehensive match, directly mentioning 'wiring installation' and covering the general role of an electrician for both light and power in buildings, which aligns perfectly with working on electrical wiring in homes and offices.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "E3232_02",
+                "anzsic_desc": "Electric Light or Power Installation",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "This code specifically describes the installation of electrical systems for light and power, which is the core activity of working on electrical wiring in both residential and commercial buildings.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "E3232_05",
+                "anzsic_desc": "Electricians - Domestic",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "This code directly addresses the 'homes' aspect of the user's description, focusing on the installation and maintenance of electrical wiring in residential settings.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "E3232_04",
+                "anzsic_desc": "Electricians - Commercial",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "This code directly addresses the 'offices' aspect of the user's description, focusing on the installation and maintenance of electrical wiring in commercial buildings.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "E3232_09",
+                "anzsic_desc": "Telecommunication Cable or Wire Installation and Maintenance (Excl Transmission Lines)",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "While primarily for telecommunications, this code involves installing and maintaining 'cable or wire' within buildings, which can be considered a type of electrical wiring work, especially in office environments.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #04 — hospitality operator query (runs a cafe serving coffee and light meals)",
+        "query": "runs a café serving coffee and light meals",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "H4511_05",
+                "anzsic_desc": "Cafe Operation - Unlicensed, without Deep Frying",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "H4511_11",
+                "anzsic_desc": "Coffee Shop, without Deep Frying",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "H4511_03",
+                "anzsic_desc": "Cafe Operation - Licensed, without Deep Frying",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "H4511_04",
+                "anzsic_desc": "Cafe Operation - Unlicensed, with Deep Frying",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "H4511_10",
+                "anzsic_desc": "Coffee Shop, with Deep Frying",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "H4511_05",
+                "anzsic_desc": "Cafe Operation - Unlicensed, without Deep Frying",
+                "class_desc": "Cafes and Restaurants",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "This code directly matches 'runs a cafe' and 'serving coffee and light meals'. It represents a general cafe operation, with 'unlicensed' and 'without deep frying' being common characteristics for such an establishment when no other details are provided.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "H4511_11",
+                "anzsic_desc": "Coffee Shop, without Deep Frying",
+                "class_desc": "Cafes and Restaurants",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "This code is an excellent match as the user specifically mentions 'serving coffee'. A coffee shop typically offers light meals, and 'without deep frying' aligns well with the concept of 'light meals'.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "H4511_03",
+                "anzsic_desc": "Cafe Operation - Licensed, without Deep Frying",
+                "class_desc": "Cafes and Restaurants",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "Similar to the top choice, this code describes a general cafe operation serving coffee and light meals. The 'licensed' aspect is a common variation for cafes, and 'without deep frying' fits the 'light meals' description.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "H4511_04",
+                "anzsic_desc": "Cafe Operation - Unlicensed, with Deep Frying",
+                "class_desc": "Cafes and Restaurants",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "This code covers a general cafe operation that might include some deep-fried items as part of its 'light meals' menu. It remains a strong match for 'runs a cafe serving coffee and light meals'.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "H4511_10",
+                "anzsic_desc": "Coffee Shop, with Deep Frying",
+                "class_desc": "Cafes and Restaurants",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "This code is a good alternative for a coffee shop that serves coffee and light meals, acknowledging that some 'light meals' might involve deep frying. It directly matches the 'coffee' aspect of the user's description.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #05 — professional services B2B query (sells insurance policies to businesses)",
+        "query": "sells insurance policies to businesses",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "K6420_06",
+                "anzsic_desc": "Insurance Broking Service",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "K6420_04",
+                "anzsic_desc": "Insurance Agency Service",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "K6420_05",
+                "anzsic_desc": "Insurance Underwriting Agency Service",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "K6420_08",
+                "anzsic_desc": "Insurance Consulting Service",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "K6420_10",
+                "anzsic_desc": "Services to Insurance n.e.c.",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "K6420_06",
+                "anzsic_desc": "Insurance Broking Service",
+                "class_desc": "Auxiliary Insurance Services",
+                "division_desc": "Financial and Insurance Services",
+                "reason": "This code directly matches 'sells insurance policies' as insurance brokers act as intermediaries to sell policies from various providers to clients, including businesses.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "K6420_04",
+                "anzsic_desc": "Insurance Agency Service",
+                "class_desc": "Auxiliary Insurance Services",
+                "division_desc": "Financial and Insurance Services",
+                "reason": "An insurance agency sells policies on behalf of one or more insurance companies, which directly aligns with the description 'sells insurance policies to businesses'.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "K6420_05",
+                "anzsic_desc": "Insurance Underwriting Agency Service",
+                "class_desc": "Auxiliary Insurance Services",
+                "division_desc": "Financial and Insurance Services",
+                "reason": "Underwriting agencies not only assess and accept risks but also sell insurance policies on behalf of insurers, making it a strong match for selling policies to businesses.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "K6420_08",
+                "anzsic_desc": "Insurance Consulting Service",
+                "class_desc": "Auxiliary Insurance Services",
+                "division_desc": "Financial and Insurance Services",
+                "reason": "While primarily advisory, insurance consultants often facilitate the placement and sale of insurance policies to businesses, making it a related activity to 'sells insurance policies'.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "K6420_10",
+                "anzsic_desc": "Services to Insurance n.e.c.",
+                "class_desc": "Auxiliary Insurance Services",
+                "division_desc": "Financial and Insurance Services",
+                "reason": "This is a general category for auxiliary services to insurance. If the selling activity doesn't fit more specifically into broking or agency, this code could encompass other forms of selling support.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #06 — logistics/transport trade query (drives a truck delivering goods interstate)",
+        "query": "drives a truck delivering goods interstate",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "I4610_06",
+                "anzsic_desc": "Road Delivery Service (Excl Courier)",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "I4610_08",
+                "anzsic_desc": "Road Freight Transport Service - Non-hazardous / Non-dangerous Goods (Excl Depot / Storeage)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "I4610_13",
+                "anzsic_desc": "Truck Hire Service - with Driver",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "I4610_10",
+                "anzsic_desc": "Road Freight Transport / Haulage - Non-hazardous Goods / Non-dangerous Goods (Incl Depot / Storage)",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "I4610_11",
+                "anzsic_desc": "Taxi Truck Service - with Driver",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "I4610_06",
+                "anzsic_desc": "Road Delivery Service (Excl Courier)",
+                "class_desc": "Road Freight Transport",
+                "division_desc": "Transport, Postal and Warehousing",
+                "reason": "This code directly matches the user's description of 'delivering goods' by truck on the road. The term 'interstate' implies a service, making this a very precise fit.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "I4610_08",
+                "anzsic_desc": "Road Freight Transport Service - Non-hazardous / Non-dangerous Goods (Excl Depot / Storeage)",
+                "class_desc": "Road Freight Transport",
+                "division_desc": "Transport, Postal and Warehousing",
+                "reason": "This code broadly covers the activity of transporting goods by road, which inherently includes delivering them interstate. It's a general but accurate description of the core function of driving a truck for freight.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "I4610_13",
+                "anzsic_desc": "Truck Hire Service - with Driver",
+                "class_desc": "Road Freight Transport",
+                "division_desc": "Transport, Postal and Warehousing",
+                "reason": "This code describes a service where a truck is hired along with its driver to transport goods, which aligns well with 'drives a truck delivering goods'. It represents a common business model for providing such services.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "I4610_10",
+                "anzsic_desc": "Road Freight Transport / Haulage - Non-hazardous Goods / Non-dangerous Goods (Incl Depot / Storage)",
+                "class_desc": "Road Freight Transport",
+                "division_desc": "Transport, Postal and Warehousing",
+                "reason": "Similar to other road freight codes, this covers the general transport of goods by truck. While it includes depot/storage, the primary activity of driving a truck to deliver goods interstate is central to this classification.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "I4610_11",
+                "anzsic_desc": "Taxi Truck Service - with Driver",
+                "class_desc": "Road Freight Transport",
+                "division_desc": "Transport, Postal and Warehousing",
+                "reason": "This code describes a service where a truck and driver are provided for transport, often on-demand. Although 'interstate' might be less typical for a 'taxi truck', the core activity of driving a truck to deliver goods with a driver is present.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #07 — healthcare worker at named facility (nurse working at a hospital)",
+        "query": "nurse working at a hospital",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "Q8401_05",
+                "anzsic_desc": "General Hospital Operation",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "Q8401_09",
+                "anzsic_desc": "Hospital Operation (Excl Psychiatric, Dental or Veterinary)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "Q8401_02",
+                "anzsic_desc": "Day Hospital (Day Surgery) for Medical Procedures",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "Q8401_01",
+                "anzsic_desc": "Children's Hospital Operation",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "Q8401_17",
+                "anzsic_desc": "Women's Hospital Operation",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "Q8401_05",
+                "anzsic_desc": "General Hospital Operation",
+                "class_desc": "Hospitals (Except Psychiatric Hospitals)",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "This code directly describes the operation of a general hospital, which is the most common and unspecified type of hospital where a nurse would work.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "Q8401_09",
+                "anzsic_desc": "Hospital Operation (Excl Psychiatric, Dental or Veterinary)",
+                "class_desc": "Hospitals (Except Psychiatric Hospitals)",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "This code broadly covers the operation of most types of hospitals where a nurse would be employed, aligning well with the general description.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "Q8401_02",
+                "anzsic_desc": "Day Hospital (Day Surgery) for Medical Procedures",
+                "class_desc": "Hospitals (Except Psychiatric Hospitals)",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "Day hospitals are a specific but common type of hospital facility where nurses play a crucial role in patient care and procedures.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "Q8401_01",
+                "anzsic_desc": "Children's Hospital Operation",
+                "class_desc": "Hospitals (Except Psychiatric Hospitals)",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "This code represents a common and distinct type of hospital where nurses are extensively employed, fitting the description of 'working at a hospital'.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "Q8401_17",
+                "anzsic_desc": "Women's Hospital Operation",
+                "class_desc": "Hospitals (Except Psychiatric Hospitals)",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "Similar to children's hospitals, women's hospitals are a specific but prevalent type of hospital environment where nurses provide specialized care.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #08 — informal tech worker query (does IT support and software stuff)",
+        "query": "does IT support and software stuff",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "M7000_07",
+                "anzsic_desc": "Computer Programmer / Consulting Service",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "M7000_10",
+                "anzsic_desc": "IT Consulting Service (Incl Telecommunications)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "M7000_01",
+                "anzsic_desc": "Computer Consulting Service (Excl Retail)",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "M7000_13",
+                "anzsic_desc": "Software Development Service",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "M7000_08",
+                "anzsic_desc": "Computer Systems Analysis Service",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "M7000_07",
+                "anzsic_desc": "Computer Programmer / Consulting Service",
+                "class_desc": "Computer System Design and Related Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "This code directly combines 'Computer Programmer' (covering 'software stuff') and 'Consulting Service' (covering 'IT support' and general advice), making it an excellent match for both aspects of the user's description.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "M7000_10",
+                "anzsic_desc": "IT Consulting Service (Incl Telecommunications)",
+                "class_desc": "Computer System Design and Related Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "IT Consulting broadly encompasses providing advice, implementation, and support for IT systems, which naturally includes both general IT support functions and services related to software solutions.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "M7000_01",
+                "anzsic_desc": "Computer Consulting Service (Excl Retail)",
+                "class_desc": "Computer System Design and Related Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "Similar to IT Consulting, this code covers general computer-related advice and services, which would involve both IT support activities and work with software.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "M7000_13",
+                "anzsic_desc": "Software Development Service",
+                "class_desc": "Computer System Design and Related Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "This code directly addresses the 'software stuff' part of the user's description. While not explicitly 'IT support', software development often includes support for the developed applications or systems.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "M7000_08",
+                "anzsic_desc": "Computer Systems Analysis Service",
+                "class_desc": "Computer System Design and Related Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "Computer Systems Analysis involves examining and designing IT systems and software, which is a foundational activity that supports both IT operations and software development efforts.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #09 — primary industry single-result query (farmer who grows wheat and barley)",
+        "query": "farmer who grows wheat and barley",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "A0149_01",
+                "anzsic_desc": "Grain Crop Growing",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "A0149_01",
+                "anzsic_desc": "Grain Crop Growing",
+                "class_desc": "Other Grain Growing",
+                "division_desc": "Agriculture, Forestry and Fishing",
+                "reason": "This code directly matches the description of a farmer who grows grain crops like wheat and barley. The 'Not included' section confirms it's for grain growing not combined with livestock farming, which fits the user's specific input.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #10 — professional services with specific activity (accountant doing tax returns for small businesses)",
+        "query": "accountant doing tax returns for small businesses",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "M6932_07",
+                "anzsic_desc": "Tax Agent Service",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "M6932_01",
+                "anzsic_desc": "Accountant / Accounting Service",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "M6932_04",
+                "anzsic_desc": "Bookkeeping Service",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "M6932_07",
+                "anzsic_desc": "Tax Agent Service",
+                "class_desc": "Accounting Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "This code directly describes the primary activity of 'doing tax returns' for businesses, which is a core function of a tax agent.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "M6932_01",
+                "anzsic_desc": "Accountant / Accounting Service",
+                "class_desc": "Accounting Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "This code directly matches the 'accountant' mentioned in the description, and preparing tax returns is a fundamental accounting service provided by accountants.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "M6932_04",
+                "anzsic_desc": "Bookkeeping Service",
+                "class_desc": "Accounting Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "While distinct from tax preparation, bookkeeping services for small businesses often involve preparing financial records that are essential for tax returns, and some bookkeepers may also offer tax preparation.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #11 — short formal trade query (Mobile Mechanic)",
+        "query": "Mobile Mechanic",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "S9419_03",
+                "anzsic_desc": "Mobile Motor Vehicle Mechanic (Incl Commercial <10 Tonne)",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "S9419_04",
+                "anzsic_desc": "Mobile Motor Vehicle Mechanic (Incl Commercial >10 Tonne)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "S9411_01",
+                "anzsic_desc": "Mobile Auto-electrical",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "S9419_06",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial <10 Tonne)",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "S9419_07",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial >10 Tonne)",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "S9419_03",
+                "anzsic_desc": "Mobile Motor Vehicle Mechanic (Incl Commercial <10 Tonne)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This code is the most direct match as it explicitly describes a 'Mobile Motor Vehicle Mechanic' for lighter commercial vehicles, perfectly aligning with the user's input.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "S9419_04",
+                "anzsic_desc": "Mobile Motor Vehicle Mechanic (Incl Commercial >10 Tonne)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "Similar to the top choice, this code also explicitly states 'Mobile Motor Vehicle Mechanic', but for heavier commercial vehicles. It's a very strong match for the core description.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "S9411_01",
+                "anzsic_desc": "Mobile Auto-electrical",
+                "class_desc": "Automotive Electrical Services",
+                "division_desc": "Other Services",
+                "reason": "This code includes 'Mobile' and relates to automotive repair, making it relevant. While it specifies 'Auto-electrical' rather than general mechanical, many mobile mechanics offer a range of services including electrical work.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "S9419_06",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial <10 Tonne)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This code covers the 'Mechanic' aspect of the user's input, focusing on general mechanical service and repairs for lighter vehicles. Although it doesn't explicitly say 'Mobile', these are the services a mobile mechanic would provide.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "S9419_07",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - (Incl Commercial >10 Tonne)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This code also covers general 'Automotive / Motor Vehicle Mechanical Service and Repairs' for heavier vehicles. It describes the core function of a mechanic, even if the 'mobile' aspect isn't explicitly stated in the title.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #12 — single-word trade query (Plumber)",
+        "query": "Plumber",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "E3231_05",
+                "anzsic_desc": "Plumber / Plumbing Services",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "E3231_06",
+                "anzsic_desc": "Repair of Installed Plumbing",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "E3231_02",
+                "anzsic_desc": "Gas Plumbing",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "E3231_01",
+                "anzsic_desc": "Drain Construction / Cleaning / Repairing",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "E3231_03",
+                "anzsic_desc": "Gasfitting Service",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "E3231_05",
+                "anzsic_desc": "Plumber / Plumbing Services",
+                "class_desc": "Plumbing Services",
+                "division_desc": "Construction",
+                "reason": "This code is the most direct and general match for the term 'Plumber', explicitly including 'Plumber' in its occupation description.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "E3231_06",
+                "anzsic_desc": "Repair of Installed Plumbing",
+                "class_desc": "Plumbing Services",
+                "division_desc": "Construction",
+                "reason": "Repairing existing plumbing systems is a primary and common activity performed by a plumber, making this a very relevant match.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "E3231_02",
+                "anzsic_desc": "Gas Plumbing",
+                "class_desc": "Plumbing Services",
+                "division_desc": "Construction",
+                "reason": "Gas plumbing is a specialized but common service provided by qualified plumbers, directly aligning with a core aspect of the trade.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "E3231_01",
+                "anzsic_desc": "Drain Construction / Cleaning / Repairing",
+                "class_desc": "Plumbing Services",
+                "division_desc": "Construction",
+                "reason": "Work on drains, including construction, cleaning, and repair, is a fundamental and frequent task undertaken by plumbers.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "E3231_03",
+                "anzsic_desc": "Gasfitting Service",
+                "class_desc": "Plumbing Services",
+                "division_desc": "Construction",
+                "reason": "Gasfitting is another key specialization within the plumbing trade, often performed by plumbers who are licensed for gas work.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #13 — mobile automotive niche query with fewer results (Mobile Paint Touch Ups)",
+        "query": "Mobile Paint Touch Ups",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "S9412_07",
+                "anzsic_desc": "Motor Vehicle Spray Painting",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "S9412_09",
+                "anzsic_desc": "Motor Vehicle / Car detailing Service",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "S9412_04",
+                "anzsic_desc": "Motor Vehicle Body Repair (Other)",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "S9412_07",
+                "anzsic_desc": "Motor Vehicle Spray Painting",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "The user's request for 'Paint Touch Ups' directly involves applying paint to a motor vehicle, which is a specific type of motor vehicle spray painting or paint application.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "S9412_09",
+                "anzsic_desc": "Motor Vehicle / Car detailing Service",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "Car detailing services frequently include minor paint correction, chip repair, and touch-ups as part of their comprehensive service to enhance a vehicle's appearance.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "S9412_04",
+                "anzsic_desc": "Motor Vehicle Body Repair (Other)",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "Paint touch-ups are a form of minor repair to the exterior body of a motor vehicle, addressing small imperfections like scratches or chips, fitting into a general body repair category.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #14 — noisy/garbled real insurance data entry (newly inherited client, meeting logistics)",
+        "query": "Office Newly inherited client from previous AM Tony N, Cover to extend as per above referral - Associated , [REDACTED] Meetings held at various locations / venues. They will be at a hotel in the capital city of the state where the meeting is held (NSW, QLD or VIC). Meetings held in Feb, May, Aug & Nov",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "N7291_02",
+                "anzsic_desc": "Business Administrative Service (General)",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "N7291_04",
+                "anzsic_desc": "Office Administrative Service (Incl Document Preparation)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "N7291_03",
+                "anzsic_desc": "Business Service n.e.c.",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "N7291_05",
+                "anzsic_desc": "Secretarial Service",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "N7291_02",
+                "anzsic_desc": "Business Administrative Service (General)",
+                "class_desc": "office Administrative Services",
+                "division_desc": "Administrative and Support Services",
+                "reason": "This code broadly covers general office support and client management, which aligns well with the description of an 'Office Newly inherited client' and providing unspecified 'cover' or support.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "N7291_04",
+                "anzsic_desc": "Office Administrative Service (Incl Document Preparation)",
+                "class_desc": "office Administrative Services",
+                "division_desc": "Administrative and Support Services",
+                "reason": "This code is suitable if the administrative support for the client, especially one holding frequent meetings, involves tasks like preparing documents, reports, or meeting materials as part of general office administration.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "N7291_03",
+                "anzsic_desc": "Business Service n.e.c.",
+                "class_desc": "office Administrative Services",
+                "division_desc": "Administrative and Support Services",
+                "reason": "This is a general classification for business services not specifically defined elsewhere, making it a good fit for a vague description of client management and support within an office setting.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "N7291_05",
+                "anzsic_desc": "Secretarial Service",
+                "class_desc": "office Administrative Services",
+                "division_desc": "Administrative and Support Services",
+                "reason": "This code applies if the entity provides secretarial support, such as scheduling, correspondence, or general office assistance, for the newly inherited client and their meeting logistics.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #15 — noisy real data with structured property description (office/medical room multi-storey)",
+        "query": "Office - AP & BA SALES ASSOCIATES OFFICES, P/O /Medical Rooms / Offices",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "L6712_21",
+                "anzsic_desc": "Property Owner - Office - Multi Storey",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "L6712_23",
+                "anzsic_desc": "Property Owner - Office n.e.c.",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "L6712_24",
+                "anzsic_desc": "Property Owner - Office Showrooms (Incl Low-Medium Combustible Storage, Excl Manufacture)",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "L6712_20",
+                "anzsic_desc": "Property Owner - Office -  15 - 20%  Retail Floor Area",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "L6712_21",
+                "anzsic_desc": "Property Owner - Office - Multi Storey",
+                "class_desc": "Non-Residential Property Operators",
+                "division_desc": "Rental, Hiring and Real Estate Services",
+                "reason": "The description explicitly mentions 'Level 1 Offices' and a 'basement car park', clearly indicating a multi-storey commercial property primarily used for offices, which perfectly matches this code.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "L6712_23",
+                "anzsic_desc": "Property Owner - Office n.e.c.",
+                "class_desc": "Non-Residential Property Operators",
+                "division_desc": "Rental, Hiring and Real Estate Services",
+                "reason": "This code is a strong general fit for a commercial property primarily consisting of offices, including medical rooms and sales associates' offices, when a more specific multi-storey classification might not be available or as clear.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "L6712_24",
+                "anzsic_desc": "Property Owner - Office Showrooms (Incl Low-Medium Combustible Storage, Excl Manufacture)",
+                "class_desc": "Non-Residential Property Operators",
+                "division_desc": "Rental, Hiring and Real Estate Services",
+                "reason": "While 'showrooms' are not explicitly stated, the mention of 'AP & BA SALES ASSOCIATES OFFICES' could imply a showroom component within the commercial office property, making this a plausible match.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "L6712_20",
+                "anzsic_desc": "Property Owner - Office -  15 - 20%  Retail Floor Area",
+                "class_desc": "Non-Residential Property Operators",
+                "division_desc": "Rental, Hiring and Real Estate Services",
+                "reason": "The description includes a ground floor component which often implies a retail element in commercial buildings. If that area is retail, this code would be a good fit for a mixed-use office building.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #16 — abbreviated industry jargon query (P/OWNER FLOOR COVERINGS RETAIL)",
+        "query": "P/OWNER FLOOR COVERINGS RETAIL",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "G4212_03",
+                "anzsic_desc": "Floor Covering Retailing (Excl Installation)",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "G4212_04",
+                "anzsic_desc": "Floor Covering Retailing (Incl Installation)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "G4212_06",
+                "anzsic_desc": "Floor Tile Retailing - Lino, Vinyl, Cork, Carpet or Rubber",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "G4212_01",
+                "anzsic_desc": "Carpet Retailing (Incl Installation)",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "G4212_02",
+                "anzsic_desc": "Carpet Retailing (Excl Installation)",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "G4212_03",
+                "anzsic_desc": "Floor Covering Retailing (Excl Installation)",
+                "class_desc": "Floor Coverings Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "This code is the most direct and general match for 'FLOOR COVERINGS RETAIL', covering the core activity of selling various floor coverings without specifying installation services.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "G4212_04",
+                "anzsic_desc": "Floor Covering Retailing (Incl Installation)",
+                "class_desc": "Floor Coverings Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "This code is also a very strong general match for 'FLOOR COVERINGS RETAIL', differing only by the inclusion of installation services, which is a common part of such businesses.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "G4212_06",
+                "anzsic_desc": "Floor Tile Retailing - Lino, Vinyl, Cork, Carpet or Rubber",
+                "class_desc": "Floor Coverings Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "This code covers a broad range of common floor covering tiles, making it a good specific fit for a business dealing in various types of floor coverings beyond just carpet.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "G4212_01",
+                "anzsic_desc": "Carpet Retailing (Incl Installation)",
+                "class_desc": "Floor Coverings Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "Carpet is a major category within 'floor coverings', and this code specifically covers the retail sale of carpets, including installation, which is a common business model.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "G4212_02",
+                "anzsic_desc": "Carpet Retailing (Excl Installation)",
+                "class_desc": "Floor Coverings Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "Similar to the previous entry, this code specifically covers the retail sale of carpets, but for businesses that do not provide installation services, still fitting the general description.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #17 — two-word retail query with cross-division noise results (Convenience store)",
+        "query": "Convenience store",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "G4110_01",
+                "anzsic_desc": "Convenience Store Operation",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "G4110_02",
+                "anzsic_desc": "General Store Retailing",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "H4512_09",
+                "anzsic_desc": "Milk Bar / Delicatessen, with Deep Frying",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "H4512_19",
+                "anzsic_desc": "Kiosk, without Deep Frying",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "G4110_01",
+                "anzsic_desc": "Convenience Store Operation",
+                "class_desc": "Supermarket and Grocery Stores",
+                "division_desc": "Retail Trade",
+                "reason": "This code is a direct and explicit match for the user's input 'Convenience store', perfectly describing the core business activity.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "G4110_02",
+                "anzsic_desc": "General Store Retailing",
+                "class_desc": "Supermarket and Grocery Stores",
+                "division_desc": "Retail Trade",
+                "reason": "General stores often operate similarly to convenience stores, offering a broad range of everyday groceries and household items for quick purchase, especially in smaller communities.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "H4512_09",
+                "anzsic_desc": "Milk Bar / Delicatessen, with Deep Frying",
+                "class_desc": "Takeaway Food Services",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "Traditional milk bars frequently function as convenience stores, selling packaged goods, drinks, and often takeaway food, aligning well with the general concept of a convenience store.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "H4512_19",
+                "anzsic_desc": "Kiosk, without Deep Frying",
+                "class_desc": "Takeaway Food Services",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "A kiosk can represent a smaller, more limited version of a convenience store, typically offering quick-grab items like snacks and drinks, fitting a subset of convenience store operations.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #18 — dual-activity mixed trade query (Used Car Sales & Mechanical Workshop)",
+        "query": "Used Car Sales & Mechanical Workshop",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "G3911_07",
+                "anzsic_desc": "Motor Vehicle Dealers - Used (Incl Servicing)",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "S9419_05",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - Workshop (Excl Smash Repairs)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "G3911_06",
+                "anzsic_desc": "Motor Vehicle Dealers - Used (Excl Servicing)",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "S9419_08",
+                "anzsic_desc": "Automotive / Motor Vehicle Service and Repairs n.e.c.",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "G3911_05",
+                "anzsic_desc": "Motor Vehicle Dealers - New and Used (Incl Servicing)",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "G3911_07",
+                "anzsic_desc": "Motor Vehicle Dealers - Used (Incl Servicing)",
+                "class_desc": "Car Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "This code perfectly matches both parts of the description: 'Used Car Sales' and the 'Mechanical Workshop' aspect through its explicit inclusion of 'Servicing'. It directly describes a business that sells used vehicles and provides maintenance.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "S9419_05",
+                "anzsic_desc": "Automotive / Motor Vehicle Mechanical Service and Repairs - Workshop (Excl Smash Repairs)",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This code directly describes the 'Mechanical Workshop' component of the business. It covers general automotive repair and maintenance services, which is a key part of the user's description.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "G3911_06",
+                "anzsic_desc": "Motor Vehicle Dealers - Used (Excl Servicing)",
+                "class_desc": "Car Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "This code accurately captures the 'Used Car Sales' aspect of the business. While it explicitly excludes servicing, it is a precise match for the sales component if the workshop is considered a separate or secondary activity.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "S9419_08",
+                "anzsic_desc": "Automotive / Motor Vehicle Service and Repairs n.e.c.",
+                "class_desc": "Other Automotive Repair and Maintenance",
+                "division_desc": "Other Services",
+                "reason": "This is a broad code for automotive service and repairs, making it a suitable general match for the 'Mechanical Workshop' part of the description. It covers various repair activities not elsewhere classified.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "G3911_05",
+                "anzsic_desc": "Motor Vehicle Dealers - New and Used (Incl Servicing)",
+                "class_desc": "Car Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "This code covers both motor vehicle sales (including used) and servicing, aligning with the user's description. Although it includes 'New' car sales which wasn't specified, it still captures the combined nature of the business.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #19 — compound dual-trade query (Panel Beater/Spray Painter)",
+        "query": "Panel Beater/Spray Painter",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "S9412_03",
+                "anzsic_desc": "Motor Vehicle Body Repair (Approved Spray Booth)",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "S9412_05",
+                "anzsic_desc": "Panel Beating (Motor Vehicle Body Repairing)",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "S9412_07",
+                "anzsic_desc": "Motor Vehicle Spray Painting",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "S9412_02",
+                "anzsic_desc": "Motor Vehicle Body / Smash Repair (Excl Bus, Coach Trucks and Heavy Machinery)",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "S9412_04",
+                "anzsic_desc": "Motor Vehicle Body Repair (Other)",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "S9412_03",
+                "anzsic_desc": "Motor Vehicle Body Repair (Approved Spray Booth)",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "This code directly covers both aspects of the user's description: 'Motor Vehicle Body Repair' for panel beating and 'Approved Spray Booth' which implies spray painting, making it the most comprehensive match.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "S9412_05",
+                "anzsic_desc": "Panel Beating (Motor Vehicle Body Repairing)",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "This code is a direct and explicit match for the 'Panel Beater' part of the user's description, focusing specifically on motor vehicle body repair.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "S9412_07",
+                "anzsic_desc": "Motor Vehicle Spray Painting",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "This code is a direct and explicit match for the 'Spray Painter' part of the user's description, covering the painting aspect of the role.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "S9412_02",
+                "anzsic_desc": "Motor Vehicle Body / Smash Repair (Excl Bus, Coach Trucks and Heavy Machinery)",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "This code strongly aligns with the 'Panel Beater' aspect, as 'Body / Smash Repair' is synonymous with panel beating for standard motor vehicles.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "S9412_04",
+                "anzsic_desc": "Motor Vehicle Body Repair (Other)",
+                "class_desc": "Automotive Body, Paint and Interior Repair",
+                "division_desc": "Other Services",
+                "reason": "This code provides a general category for motor vehicle body repair, which encompasses the panel beating duties described, making it a relevant broader match.",
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "REAL #20 — generic two-word industry term (Electrical Services)",
+        "query": "Electrical Services",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "E3232_03",
+                "anzsic_desc": "Electrician / Electrical Services / Electric Light, Power or Wiring Intallation",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "E3232_04",
+                "anzsic_desc": "Electricians - Commercial",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 2,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "E3232_05",
+                "anzsic_desc": "Electricians - Domestic",
+                "rrf_score": 0.017,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 3,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "E3232_02",
+                "anzsic_desc": "Electric Light or Power Installation",
+                "rrf_score": 0.013,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 4,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "E3232_06",
+                "anzsic_desc": "Household Appliances Installation / Repair (Incl Home Theatre Systems)",
+                "rrf_score": 0.010,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 5,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "E3232_03",
+                "anzsic_desc": "Electrician / Electrical Services / Electric Light, Power or Wiring Intallation",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "This code is the most direct match as its occupation description explicitly includes 'Electrical Services' and covers general electrician work like light, power, and wiring installation.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "E3232_04",
+                "anzsic_desc": "Electricians - Commercial",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "Commercial electricians provide a broad range of electrical services for businesses and industrial settings, making this a core component of 'Electrical Services'.",
+                "score": null
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "E3232_05",
+                "anzsic_desc": "Electricians - Domestic",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "Domestic electricians provide essential electrical services for residential properties, which is a significant part of the overall 'Electrical Services' industry.",
+                "score": null
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "E3232_02",
+                "anzsic_desc": "Electric Light or Power Installation",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "The installation of electric light and power systems is a fundamental and common type of electrical service provided by electricians.",
+                "score": null
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "E3232_06",
+                "anzsic_desc": "Household Appliances Installation / Repair (Incl Home Theatre Systems)",
+                "class_desc": "Electrical Services",
+                "division_desc": "Construction",
+                "reason": "This code covers the installation and repair of household electrical appliances, which is a specific but common type of electrical service offered to consumers.",
+                "score": null
+            }
+        ]
+    }
+]

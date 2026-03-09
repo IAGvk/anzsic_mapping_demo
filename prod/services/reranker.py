@@ -87,17 +87,19 @@ class LLMReranker:
                 "falling back to CSV-only LLM call", query
             )
 
-        # ── Attempt 1: always include full CSV reference ───────────────────
-        # Sending the full ANZSIC reference on the first call gives the LLM
-        # broader context, which matters most when vector search is disabled
-        # (FTS-only mode) and candidates may be less semantically precise.
-        results = self._call_llm(query, candidates, top_k, include_reference=True)
+        # ── Attempt 1: candidates only (no full CSV) ─────────────────────
+        # Keep the prompt concise — Stage 1 retrieval should already surface
+        # the right codes.  Skipping the 5 000-row CSV reference shaves tokens
+        # and latency from every call.
+        results = self._call_llm(query, candidates, top_k, include_reference=False)
         if results:
             return results
 
-        # ── Attempt 2: retry (same context, different conversation) ────────
+        # ── Attempt 2: retry WITH full CSV reference ───────────────────────
+        # Only reached when Attempt 1 returns nothing (rare edge case).
+        # The CSV gives the LLM broader context to find an obscure match.
         logger.warning(
-            "LLM returned empty results for %r — retrying", query
+            "LLM returned empty results for %r — retrying with CSV reference", query
         )
         results = self._call_llm(query, candidates, top_k, include_reference=True)
         if results:

@@ -1,0 +1,569 @@
+[
+    {
+        "_scenario": "GOOD — fully grounded, coherent, correct codes",
+        "query": "mobile mechanic",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "S9419_03",
+                "anzsic_desc": "Automotive Repair and Maintenance",
+                "rrf_score": 0.032,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "S9419_01",
+                "anzsic_desc": "Automotive Electrical Services",
+                "rrf_score": 0.021,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "S9419_02",
+                "anzsic_desc": "Automotive Body Repair Services",
+                "rrf_score": 0.018,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 3,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "L6711_01",
+                "anzsic_desc": "Automotive Parts and Accessories Retailing",
+                "rrf_score": 0.014,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 3
+            },
+            {
+                "anzsic_code": "I4610_01",
+                "anzsic_desc": "Road Freight Transport",
+                "rrf_score": 0.010,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "S9419_03",
+                "anzsic_desc": "Automotive Repair and Maintenance",
+                "class_desc": "Other Personal Services",
+                "division_desc": "Other Services",
+                "reason": "Mobile mechanic describes someone who performs automotive repair and maintenance tasks at the customer's location, which directly maps to this code.",
+                "score": 970
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "S9419_01",
+                "anzsic_desc": "Automotive Electrical Services",
+                "class_desc": "Other Personal Services",
+                "division_desc": "Other Services",
+                "reason": "Automotive electrical work is often performed by mobile mechanics as a secondary skillset, making this code plausible.",
+                "score": 710
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "S9419_02",
+                "anzsic_desc": "Automotive Body Repair Services",
+                "class_desc": "Other Personal Services",
+                "division_desc": "Other Services",
+                "reason": "Body repair is sometimes performed by mobile tradespeople, though less common than mechanical repair.",
+                "score": 520
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "L6711_01",
+                "anzsic_desc": "Automotive Parts and Accessories Retailing",
+                "class_desc": "Motor Vehicle Retailing",
+                "division_desc": "Retail Trade",
+                "reason": "Some mobile mechanics also retail parts as part of their service offering.",
+                "score": 310
+            },
+            {
+                "rank": 5,
+                "anzsic_code": "I4610_01",
+                "anzsic_desc": "Road Freight Transport",
+                "class_desc": "Road Transport",
+                "division_desc": "Transport, Postal and Warehousing",
+                "reason": "Tangential — vehicle operation is related but this is not a maintenance-focused code.",
+                "score": 150
+            }
+        ]
+    },
+    {
+        "_scenario": "HALLUCINATED CODE — rank-1 code does not exist in master CSV",
+        "query": "registered nurse",
+        "top_k": 3,
+        "candidates": [
+            {
+                "anzsic_code": "Q8531_01",
+                "anzsic_desc": "Registered Nurses",
+                "rrf_score": 0.030,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "Q8531_02",
+                "anzsic_desc": "Enrolled Nurses",
+                "rrf_score": 0.018,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "Q8539_01",
+                "anzsic_desc": "Other Medical Practitioners",
+                "rrf_score": 0.011,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 3,
+                "fts_rank": null
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "Q9999_XX",
+                "anzsic_desc": "Senior Registered Nursing Professional",
+                "class_desc": "Health Care",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "A registered nurse is a senior healthcare professional who provides direct patient care and medical assistance in clinical settings.",
+                "score": 980
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "Q8531_01",
+                "anzsic_desc": "Registered Nurses",
+                "class_desc": "Hospitals",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "Standard registered nurse occupation code for clinical settings.",
+                "score": 920
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "Q8531_02",
+                "anzsic_desc": "Enrolled Nurses",
+                "class_desc": "Hospitals",
+                "division_desc": "Health Care and Social Assistance",
+                "reason": "Enrolled nurses work alongside registered nurses and may be confused with them in non-expert descriptions.",
+                "score": 600
+            }
+        ]
+    },
+    {
+        "_scenario": "INCOHERENT SCORES — confidence values are not monotonically decreasing",
+        "query": "software engineer",
+        "top_k": 4,
+        "candidates": [
+            {
+                "anzsic_code": "J6202_01",
+                "anzsic_desc": "Computer Systems Design and Related Services",
+                "rrf_score": 0.028,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "J6201_01",
+                "anzsic_desc": "Software Publishing",
+                "rrf_score": 0.019,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "J6209_01",
+                "anzsic_desc": "Other Computer Related Services",
+                "rrf_score": 0.015,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 3,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "M6910_01",
+                "anzsic_desc": "Scientific Research Services",
+                "rrf_score": 0.009,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 4
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "J6202_01",
+                "anzsic_desc": "Computer Systems Design and Related Services",
+                "class_desc": "ICT Services",
+                "division_desc": "Information Media and Telecommunications",
+                "reason": "Software engineers design and build computer systems, directly matching this classification which covers bespoke application development.",
+                "score": 750
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "J6201_01",
+                "anzsic_desc": "Software Publishing",
+                "class_desc": "ICT Services",
+                "division_desc": "Information Media and Telecommunications",
+                "reason": "Software engineers may work in software publishing firms creating packaged software products.",
+                "score": 900
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "J6209_01",
+                "anzsic_desc": "Other Computer Related Services",
+                "class_desc": "ICT Services",
+                "division_desc": "Information Media and Telecommunications",
+                "reason": "Catch-all for computer-related roles not covered by more specific codes.",
+                "score": 400
+            },
+            {
+                "rank": 4,
+                "anzsic_code": "M6910_01",
+                "anzsic_desc": "Scientific Research Services",
+                "class_desc": "Professional Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "Some software engineers work in research roles, though this is not the primary interpretation.",
+                "score": 850
+            }
+        ]
+    },
+    {
+        "_scenario": "INCOMPLETE — LLM only returned 2 of requested 5 results with missing scores",
+        "query": "primary school teacher",
+        "top_k": 5,
+        "candidates": [
+            {
+                "anzsic_code": "P8012_01",
+                "anzsic_desc": "Primary Education",
+                "rrf_score": 0.031,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "P8021_01",
+                "anzsic_desc": "Secondary Education",
+                "rrf_score": 0.016,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "P8011_01",
+                "anzsic_desc": "Pre-School Education",
+                "rrf_score": 0.013,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 2
+            },
+            {
+                "anzsic_code": "P8099_01",
+                "anzsic_desc": "Other Education",
+                "rrf_score": 0.009,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 4
+            },
+            {
+                "anzsic_code": "P8110_01",
+                "anzsic_desc": "Sports and Physical Recreation Education",
+                "rrf_score": 0.006,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 5
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "P8012_01",
+                "anzsic_desc": "Primary Education",
+                "class_desc": "School Education",
+                "division_desc": "Education and Training",
+                "reason": "Primary school teacher clearly works in primary education.",
+                "score": null
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "P8021_01",
+                "anzsic_desc": "Secondary Education",
+                "class_desc": "School Education",
+                "division_desc": "Education and Training",
+                "reason": null,
+                "score": null
+            }
+        ]
+    },
+    {
+        "_scenario": "EXTRAPOLATED — codes are valid but sourced from CSV reference, not Stage-1 candidates",
+        "query": "cafe owner",
+        "top_k": 3,
+        "candidates": [
+            {
+                "anzsic_code": "H5120_01",
+                "anzsic_desc": "Takeaway Food Services",
+                "rrf_score": 0.022,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "H5130_01",
+                "anzsic_desc": "Catering Services",
+                "rrf_score": 0.015,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "H4400_01",
+                "anzsic_desc": "Accommodation Services",
+                "rrf_score": 0.009,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 3
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "H5111_01",
+                "anzsic_desc": "Cafes and Restaurants",
+                "class_desc": "Food and Beverage Services",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "A cafe owner operates a cafe or restaurant business, which directly matches this ANZSIC classification for cafes and restaurants.",
+                "score": 960
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "H5120_01",
+                "anzsic_desc": "Takeaway Food Services",
+                "class_desc": "Food and Beverage Services",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "Many cafes offer takeaway services alongside dine-in, making this a secondary but plausible classification.",
+                "score": 650
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "H5130_01",
+                "anzsic_desc": "Catering Services",
+                "class_desc": "Food and Beverage Services",
+                "division_desc": "Accommodation and Food Services",
+                "reason": "Some cafe businesses also offer catering services for events.",
+                "score": 350
+            }
+        ]
+    },
+    {
+        "_scenario": "GOOD — electrician, all signals strong",
+        "query": "electrician",
+        "top_k": 3,
+        "candidates": [
+            {
+                "anzsic_code": "E4321_01",
+                "anzsic_desc": "Electrical Services",
+                "rrf_score": 0.035,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "E4329_01",
+                "anzsic_desc": "Other Construction Services",
+                "rrf_score": 0.014,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "D2611_01",
+                "anzsic_desc": "Electrical Equipment Manufacturing",
+                "rrf_score": 0.010,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 3
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "E4321_01",
+                "anzsic_desc": "Electrical Services",
+                "class_desc": "Construction Services",
+                "division_desc": "Construction",
+                "reason": "An electrician installs, maintains and repairs electrical wiring and equipment, directly matching the Electrical Services classification under Construction.",
+                "score": 980
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "E4329_01",
+                "anzsic_desc": "Other Construction Services",
+                "class_desc": "Construction Services",
+                "division_desc": "Construction",
+                "reason": "When the electrical work is part of broader construction activity it may fall under the Other Construction Services umbrella.",
+                "score": 550
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "D2611_01",
+                "anzsic_desc": "Electrical Equipment Manufacturing",
+                "class_desc": "Manufacturing",
+                "division_desc": "Manufacturing",
+                "reason": "Unlikely — electricians perform installation rather than manufacturing, but included as a distant possibility.",
+                "score": 110
+            }
+        ]
+    },
+    {
+        "_scenario": "SHORT REASONS — coherence penalised for thin explanations",
+        "query": "plumber",
+        "top_k": 3,
+        "candidates": [
+            {
+                "anzsic_code": "E4322_01",
+                "anzsic_desc": "Plumbing Services",
+                "rrf_score": 0.033,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "E4329_01",
+                "anzsic_desc": "Other Construction Services",
+                "rrf_score": 0.012,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "E4311_01",
+                "anzsic_desc": "Site Preparation Services",
+                "rrf_score": 0.008,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 3
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "E4322_01",
+                "anzsic_desc": "Plumbing Services",
+                "class_desc": "Construction Services",
+                "division_desc": "Construction",
+                "reason": "Plumber.",
+                "score": 980
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "E4329_01",
+                "anzsic_desc": "Other Construction Services",
+                "class_desc": "Construction Services",
+                "division_desc": "Construction",
+                "reason": "Other.",
+                "score": 400
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "E4311_01",
+                "anzsic_desc": "Site Preparation Services",
+                "class_desc": "Construction Services",
+                "division_desc": "Construction",
+                "reason": "Site.",
+                "score": 200
+            }
+        ]
+    },
+    {
+        "_scenario": "GOOD — accountant",
+        "query": "accountant",
+        "top_k": 3,
+        "candidates": [
+            {
+                "anzsic_code": "M6921_01",
+                "anzsic_desc": "Accounting Services",
+                "rrf_score": 0.034,
+                "in_vector": true,
+                "in_fts": true,
+                "vector_rank": 1,
+                "fts_rank": 1
+            },
+            {
+                "anzsic_code": "M6922_01",
+                "anzsic_desc": "Auditing and Assurance Services",
+                "rrf_score": 0.019,
+                "in_vector": true,
+                "in_fts": false,
+                "vector_rank": 2,
+                "fts_rank": null
+            },
+            {
+                "anzsic_code": "M6910_01",
+                "anzsic_desc": "Scientific Research Services",
+                "rrf_score": 0.007,
+                "in_vector": false,
+                "in_fts": true,
+                "vector_rank": null,
+                "fts_rank": 4
+            }
+        ],
+        "results": [
+            {
+                "rank": 1,
+                "anzsic_code": "M6921_01",
+                "anzsic_desc": "Accounting Services",
+                "class_desc": "Accounting and Tax Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "An accountant provides financial record-keeping, tax preparation and advisory services, aligning precisely with the Accounting Services classification.",
+                "score": 970
+            },
+            {
+                "rank": 2,
+                "anzsic_code": "M6922_01",
+                "anzsic_desc": "Auditing and Assurance Services",
+                "class_desc": "Accounting and Tax Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "Some accountants specialise in auditing and assurance work, which falls under a closely related but distinct sub-classification.",
+                "score": 680
+            },
+            {
+                "rank": 3,
+                "anzsic_code": "M6910_01",
+                "anzsic_desc": "Scientific Research Services",
+                "class_desc": "Professional Services",
+                "division_desc": "Professional, Scientific and Technical Services",
+                "reason": "Distant match — only applicable if the accountant works in a research institution with accounting as a secondary function.",
+                "score": 90
+            }
+        ]
+    }
+]

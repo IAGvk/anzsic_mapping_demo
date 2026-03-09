@@ -41,6 +41,7 @@ from prod.domain.exceptions import ConfigurationError
 from prod.ports.embedding_port import EmbeddingPort
 from prod.ports.llm_port import LLMPort
 from prod.services.classifier import ClassifierPipeline
+from prod.services.evaluator import ANZSICEvaluator
 from prod.services.reranker import LLMReranker
 from prod.services.retriever import HybridRetriever
 
@@ -135,11 +136,13 @@ def get_pipeline() -> ClassifierPipeline:
     # ── Services (receive only Port interfaces, not concrete types) ────────
     retriever = HybridRetriever(db=db, embedder=embedder, settings=settings)
     reranker  = LLMReranker(llm=llm, settings=settings)
+    evaluator = ANZSICEvaluator(settings.master_csv_path)
 
     pipeline = ClassifierPipeline(
         retriever=retriever,
         reranker=reranker,
         settings=settings,
+        evaluator=evaluator,
     )
 
     logger.info(

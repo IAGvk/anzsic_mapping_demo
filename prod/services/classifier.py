@@ -29,6 +29,7 @@ from prod.domain.models import (
     SearchMode,
     SearchRequest,
 )
+from prod.services.evaluator import ANZSICEvaluator
 from prod.services.retriever import HybridRetriever
 from prod.services.reranker import LLMReranker
 
@@ -42,9 +43,10 @@ class ClassifierPipeline:
     application code.
 
     Args:
-        retriever: HybridRetriever (Stage 1).
-        reranker:  LLMReranker (Stage 2).
-        settings:  Shared application settings.
+        retriever:  HybridRetriever (Stage 1).
+        reranker:   LLMReranker (Stage 2).
+        evaluator:  ANZSICEvaluator (Stage 3, optional quality check).
+        settings:   Shared application settings.
     """
 
     def __init__(
@@ -52,10 +54,12 @@ class ClassifierPipeline:
         retriever: HybridRetriever,
         reranker: LLMReranker,
         settings: Settings,
+        evaluator: ANZSICEvaluator | None = None,
     ) -> None:
         self._retriever = retriever
         self._reranker = reranker
         self._settings = settings
+        self._evaluator = evaluator
 
     # ── Public API ─────────────────────────────────────────────────────────
 
@@ -132,6 +136,16 @@ class ClassifierPipeline:
             generated_at=datetime.now(tz=timezone.utc),
             embed_model=self._retriever._embedder.model_name,
             llm_model=llm_model,
+            evaluation=(
+                self._evaluator.evaluate(
+                    query=request.query,
+                    results=results,
+                    candidates=candidates,
+                    top_k=request.top_k,
+                )
+                if self._evaluator and request.evaluate
+                else None
+            ),
         )
 
 

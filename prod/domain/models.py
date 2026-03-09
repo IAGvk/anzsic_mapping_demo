@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from enum import Enum
-from typing import Optional
+from typing import Any, Optional
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -41,6 +41,8 @@ class SearchRequest(BaseModel):
                        description="Maximum number of results to return")
     retrieval_n: int = Field(20, ge=5, le=50,
                              description="RRF candidate pool size per search system")
+    evaluate: bool = Field(True,
+                           description="Attach programmatic evaluation scores to the response")
 
     @field_validator("query")
     @classmethod
@@ -122,6 +124,30 @@ class ClassifyResult(BaseModel):
             return "FTS"
         return "—"
 
+# ── Evaluation output ─────────────────────────────────────────────────
+
+class EvaluationReport(BaseModel):
+    """Programmatic quality scores for a single classify() call.
+
+    All five scores are in [0.0, 1.0] — higher is better.
+    ``overall`` is a weighted mean of the five dimensions.
+    ``details`` contains per-dimension breakdowns for debugging.
+    ``flags`` is a list of plain-English warnings (empty = no issues).
+    """
+
+    # ── Five primary dimensions ──────────────────────────────────────────
+    completeness:  float  # structural completeness of the LLM response
+    coherence:     float  # internal ordering / score logic consistency
+    correctness:   float  # codes/descs match master CSV ground truth
+    relevance:     float  # top results are lexically + semantically close to query
+    groundedness:  float  # LLM stayed within Stage-1 candidate pool
+
+    # ── Aggregate ───────────────────────────────────────────────────────────
+    overall:       float  # weighted mean (weights: see ANZSICEvaluator)
+
+    # ── Diagnostics ──────────────────────────────────────────────────────────
+    details:       dict[str, Any] = Field(default_factory=dict)
+    flags:         list[str]      = Field(default_factory=list)
 
 # ── Pipeline output ────────────────────────────────────────────────────────────
 
@@ -140,6 +166,7 @@ class ClassifyResponse(BaseModel):
                          )
     embed_model:         str = ""
     llm_model:           str = ""
+    evaluation:          Optional[EvaluationReport] = None
 
     def to_dict(self) -> dict:
         """Serialise to a plain dict (JSON-safe floats/bools)."""
